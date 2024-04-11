@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import {TailSpin} from 'react-loader-spinner'
+import { TailSpin } from 'react-loader-spinner'
 import { addDoc } from "firebase/firestore"
 import { moviesRef } from "../firebase/firebase"
 import swal from 'sweetalert'
@@ -10,37 +10,37 @@ const AddMovie = () => {
     title: "",
     year: "",
     description: "",
-    image:""
+    image: ""
 
   })
 
-  const [loading,setLoading]=useState(false);
+  const [loading, setLoading] = useState(false);
 
   // adding the movies whenever the user clicks the submit button
-  const addMovies =async ()=>{
-    try{
+  const addMovies = async () => {
+    try {
       setLoading(true);
-      await addDoc(moviesRef,form);
+      await addDoc(moviesRef, form);
       swal({
-        title:"Successfully Added",
-        icon:"success",
-        buttons:false,
-        timer:3000
+        title: "Successfully Added",
+        icon: "success",
+        buttons: false,
+        timer: 3000
       })
       setForm({
         title: "",
         year: "",
         description: "",
-        image:""
-    
-      }) 
+        image: ""
+
+      })
     }
-    catch{
+    catch {
       swal({
-        title:"err",
-        icon:"error",
-        buttons:false,
-        timer:3000
+        title: "err",
+        icon: "error",
+        buttons: false,
+        timer: 3000
       })
     }
     setLoading(false);
@@ -76,7 +76,7 @@ const AddMovie = () => {
 
                 </div>
               </div>
-              
+
               <div class="p-2 w-full">
                 <div class="relative">
                   <label for="message" class="leading-7 text-sm text-gray-300">Image Link</label>
@@ -84,7 +84,7 @@ const AddMovie = () => {
                     value={form.image} onChange={(e) => setForm({
                       ...form, image: e.target.value
                     })}
-                    class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                 </div>
               </div>
               <div class="p-2 w-full">
@@ -98,7 +98,7 @@ const AddMovie = () => {
                 </div>
               </div>
               <div class="p-2 w-full">
-                <button onClick={addMovies} class="flex mx-auto text-white bg-green-600 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg">{loading ? <TailSpin height={25} color="white" /> :'Submit' }</button>
+                <button onClick={addMovies} class="flex mx-auto text-white bg-green-600 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg">{loading ? <TailSpin height={25} color="white" /> : 'Submit'}</button>
               </div>
             </div>
           </div>
