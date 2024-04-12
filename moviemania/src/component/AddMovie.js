@@ -10,7 +10,9 @@ const AddMovie = () => {
     title: "",
     year: "",
     description: "",
-    image: ""
+    image: "",
+    rated: 0,
+    rating: 0
 
   })
 
